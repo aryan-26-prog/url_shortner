@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartShort - Your Short Link</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        button {
+            margin-top: 10px;
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>✅ Your Short Link is Ready!</h2>
+        <p><strong>{{ host }}{{ short.display_id() }}</strong></p>
+        <a href="{{ host }}{{ short.display_id() }}" target="_blank">Open Link 🔗</a>
+        <form action="/">
+            <button type="submit">Create Another</button>
+        </form>
+    </div>
+</body>
+</html>

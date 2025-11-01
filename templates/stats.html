@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Stats for {{ short.display_id() }}</h2>
+  <p>Original URL: <a target="_blank" href="{{ short.original_url }}">{{ short.original_url }}</a></p>
+  <p>Created at: {{ short.created_at }}</p>
+  <p>Total clicks: {{ short.click_count }}</p>
+
+  <h3>Recent clicks (latest 100)</h3>
+  {% if clicks %}
+    <table>
+      <thead><tr><th>Time</th><th>IP</th><th>Referrer</th><th>User Agent</th></tr></thead>
+      <tbody>
+        {% for c in clicks %}
+          <tr>
+            <td>{{ c.timestamp }}</td>
+            <td>{{ c.ip }}</td>
+            <td>{{ c.referrer or '-' }}</td>
+            <td style="max-width:400px;overflow:auto">{{ c.user_agent }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No clicks yet.</p>
+  {% endif %}
+{% endblock %}
